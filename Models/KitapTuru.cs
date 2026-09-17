@@ -8,7 +8,7 @@ namespace WebUygulamaProje.Models
         [Key]      //PK
         public int Id { get; set; }
 
-        [Required(ErrorMessage ="hahaha jjj k Kitap Türü adı boş bırakılamaz!")] //not null   
+        [Required(ErrorMessage ="Kitap Türü adı boş bırakılamaz!")] //not null   
         [MaxLength(25)]
         [DisplayName("Kitap Türü Adı")]
         public string Ad { get; set; }

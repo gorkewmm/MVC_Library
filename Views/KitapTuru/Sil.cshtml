@@ -4,19 +4,18 @@
     @*2) post bu view'ın controllerını çağırıyor.*@
     <div class="border p-3 mt-5">
         <div class="row pb-3 ">
-            <h2 class="text-primary">Kitap Türü Güncelleme Sayfası</h2>
+            <h2 class="text-primary">Kitap Türü Silme Sayfası</h2>
         </hr>
     </div>
 
     <div class="mb-3">
         <label asp-for="Ad" class="p-0"></label>
-        <input asp-for="Ad" class="form-control" />
-        <input type="hidden" asp-for="Id"/>
-        <span asp-validation-for="Ad" class="text-danger"></span>
+        <input asp-for="Ad" disabled  class="form-control" />
+        <input type="hidden" asp-for="Id" />
     </div>
 
     <button type="submit" class="btn btn-lg btn-primary" style="width:250px">
-        Kitap Türü Güncelle
+        Kitap Türü Sil
     </button> @*1) butona basıldığında, post actionu harekete geçiyor.*@
 
     <a asp-controller="KitapTuru" asp-action="Index" class="btn btn-lg btn-primary" style="width:250px">

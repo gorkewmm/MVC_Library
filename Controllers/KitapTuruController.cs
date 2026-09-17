@@ -35,15 +35,14 @@ namespace WebUygulamaProje.Controllers
 
             return View();
         }
-
         public IActionResult Guncelle(int? id)
         {
-            if(id == null || id == null)
+            if (id == null || id == 0)
             {
                 return NotFound();
             }
             KitapTuru? kitapTuru = _context.KitapTurleri.Find(id);
-            if(kitapTuru == null)
+            if (kitapTuru == null)
             {
                 return NotFound();
             }
@@ -60,6 +59,42 @@ namespace WebUygulamaProje.Controllers
                 return RedirectToAction("Index", "KitapTuru");
             }
             return View();
+        }
+
+
+        public IActionResult Sil(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            KitapTuru? kitapTuru = _context.KitapTurleri.Find(id);
+            if(kitapTuru == null)
+            {
+                return NotFound();
+            }
+
+            return View(kitapTuru);
+        }
+
+        [HttpPost]
+        [ActionName("Sil")]
+        public IActionResult SilPOST(int? id)
+        {
+            if(id == null || id == 0)
+            {
+                return NotFound();
+            }
+            KitapTuru? kitapTuru = _context.KitapTurleri.Find(id);
+
+            if (kitapTuru == null)
+            {
+                return NotFound();
+            }
+
+            _context.KitapTurleri.Remove(kitapTuru);
+            _context.SaveChanges();
+            return RedirectToAction("Index", "KitapTuru");
         }
     }
 }
