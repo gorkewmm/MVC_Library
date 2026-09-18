@@ -12,6 +12,7 @@ builder.Services.AddDbContext<UygulamaDbContext>(optionsBuilder =>
 });
 
 builder.Services.AddScoped<IKitapTuruRepository,KitapTuruRepository>();
+builder.Services.AddScoped<IKitapRepository,KitapRepository>();
 //builder.Services.AddScoped<IRepository, Repository>;
 
 var app = builder.Build();

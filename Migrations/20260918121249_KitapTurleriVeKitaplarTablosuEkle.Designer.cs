@@ -11,8 +11,8 @@ using WebUygulamaProje.Utility;
 namespace WebUygulamaProje.Migrations
 {
     [DbContext(typeof(UygulamaDbContext))]
-    [Migration("20260915102941_KitapTurleriTablosuEkle")]
-    partial class KitapTurleriTablosuEkle
+    [Migration("20260918121249_KitapTurleriVeKitaplarTablosuEkle")]
+    partial class KitapTurleriVeKitaplarTablosuEkle
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,34 @@ namespace WebUygulamaProje.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("WebUygulamaProje.Models.Kitap", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<double>("Fiyat")
+                        .HasColumnType("float");
+
+                    b.Property<string>("KitapAdi")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Tanim")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Yazar")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Kitaplar");
+                });
+
             modelBuilder.Entity("WebUygulamaProje.Models.KitapTuru", b =>
                 {
                     b.Property<int>("Id")
@@ -34,7 +62,8 @@ namespace WebUygulamaProje.Migrations
 
                     b.Property<string>("Ad")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
 
                     b.HasKey("Id");
 
