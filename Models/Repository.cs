@@ -6,7 +6,7 @@ namespace WebUygulamaProje.Models
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        private readonly UygulamaDbContext _context;
+        protected readonly UygulamaDbContext _context;
         internal DbSet<T> _dbSet; //dbset = _context.Set<KitapTurleri>()
         public Repository(UygulamaDbContext context)
         {

@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using WebUygulamaProje.Models;
 using WebUygulamaProje.Utility;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,8 @@ builder.Services.AddDbContext<UygulamaDbContext>(optionsBuilder =>
     optionsBuilder.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+builder.Services.AddScoped<IKitapTuruRepository,KitapTuruRepository>();
+//builder.Services.AddScoped<IRepository, Repository>;
 
 var app = builder.Build();
 
