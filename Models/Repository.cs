@@ -17,7 +17,6 @@ namespace WebUygulamaProje.Models
         public void Ekle(T entity)
         {
             _dbSet.Add(entity);
-            _context.SaveChanges();
         }
 
         public T Get(Expression<Func<T, bool>> filter)
@@ -42,7 +41,7 @@ namespace WebUygulamaProje.Models
             //    _dbSet.Remove(item);
             //}
 
-            _dbSet.RemoveRange(entities);
+            _dbSet.RemoveRange(entities);;
         }
     }
 }
