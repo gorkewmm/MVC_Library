@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebUygulamaProje.Models
 {
@@ -16,7 +17,12 @@ namespace WebUygulamaProje.Models
         public string Yazar { get; set; }
 
         [Required]
-        [Range(50,5000)]
+        [Range(50, 5000)]
         public double Fiyat { get; set; }
+
+        public int KitapTuruId { get; set; }
+
+        [ForeignKey("KitapTuruId")]
+        public KitapTuru KitapTuru { get; set; }
     }
 }

@@ -29,7 +29,7 @@ namespace WebUygulamaProje.Controllers
             {
                 _kitapRepository.Ekle(kitap);
                 _kitapRepository.Kaydet();
-
+                TempData["basarili"] = "Yeni Kitap Ekleme Başarılı";
                 return RedirectToAction("Index", "Kitap");
             }
 
@@ -52,7 +52,7 @@ namespace WebUygulamaProje.Controllers
             {
                 _kitapRepository.Guncelle(kitap);
                 _kitapRepository.Kaydet();
-
+                TempData["basarili"] = "Kitap Güncelleme Başarılı";
                 return RedirectToAction("Index", "Kitap");
             }
 
@@ -91,7 +91,7 @@ namespace WebUygulamaProje.Controllers
 
             _kitapRepository.Sil(kitap);
             _kitapRepository.Kaydet();
-
+            TempData["basarili"] = "Kitap Silme Başarılı";
             return RedirectToAction("Index", "Kitap");
         }
 
